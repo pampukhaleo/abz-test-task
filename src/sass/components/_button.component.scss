@@ -1,0 +1,10 @@
+@use '../modules' as *;
+
+.btn {
+  background: $yellow;
+  width: 100px;
+  height: 34px;
+  border: none;
+  border-radius: 80px;
+  margin-left: 10px;
+}

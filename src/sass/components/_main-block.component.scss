@@ -1,0 +1,25 @@
+@use '../modules' as *;
+
+.main-block {
+  height: 650px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/pexels-alexandr-podvalny-1227513.jpeg') bottom;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+
+  @include flex(center, column);
+  @include for-desktop;
+  @include for-big-desktop;
+
+  h1 {
+    @include text-heading;
+    width: 380px;
+  }
+
+  p {
+    @include text-paragraph;
+    width: 380px;
+    margin-bottom: 32px;
+  }
+}

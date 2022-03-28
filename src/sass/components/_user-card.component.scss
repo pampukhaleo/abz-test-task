@@ -1,0 +1,11 @@
+@use '../modules' as *;
+
+.user-card {
+  height: 100%;
+  @include flex(space-between, column);
+  @include text-paragraph;
+
+  img {
+    border-radius: 50%;
+  }
+}

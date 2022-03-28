@@ -1,0 +1,13 @@
+@use 'mixins' as *;
+@use 'colors' as *;
+
+* {
+  @include font-normal;
+  box-sizing: border-box;
+}
+
+body {
+  @include flex(center, row);
+  margin: 0;
+  background: $light-gray;
+}

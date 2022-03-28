@@ -1,0 +1,16 @@
+@use '../modules' as *;
+
+.header {
+  height: 60px;
+  width: 100vw;
+  background: white;
+
+  .container {
+    @include flex(space-between, row);
+    margin: 0 auto;
+    height: 100%;
+
+    @include for-desktop;
+    @include for-big-desktop;
+  }
+}

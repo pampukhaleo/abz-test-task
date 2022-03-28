@@ -1,0 +1,34 @@
+@use 'fonts' as *;
+@use 'variables' as *;
+
+@mixin font-normal {
+  font-family: $nunito;
+  font-weight: $regular;
+}
+
+@mixin large {
+  font-size: $large;
+  line-height: $large-lineheight;
+}
+
+@mixin normal {
+  font-size: $normal;
+  line-height: $normal-lineheight;
+}
+
+@mixin text-heading {
+  @include font-normal;
+  @include large;
+}
+
+@mixin text-paragraph {
+  @include font-normal;
+  @include normal;
+}
+
+@mixin flex($justify, $direction) {
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  flex-direction: $direction;
+}

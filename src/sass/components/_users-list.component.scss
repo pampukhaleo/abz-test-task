@@ -1,0 +1,30 @@
+@use '../modules' as *;
+
+.users-list {
+  @include flex(space-between, column);
+}
+
+.users-list-title {
+  @include text-heading;
+  margin-top: 140px;
+  text-align: center;
+}
+
+.users-items {
+  margin: 11px auto 0;
+  flex-wrap: wrap;
+  @include for-desktop;
+  @include for-big-desktop;
+  @include flex(space-between, row);
+
+  .user-item {
+    width: 370px;
+    height: 254px;
+    text-align: center;
+    background: #fff;
+    margin-top: 29px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+}
+
