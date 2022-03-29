@@ -1,19 +1,46 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-function SignUpForm(props) {
-    const url = 'https://frontend-test-assignment-api.abz.agency/api/v1/users'
-    const [data, setData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        position_id: 1,
-        photo: '',
-    })
-    const [positions, setPositions] = useState([])
+const defaultFormFields = {
+    name: '',
+    email: '',
+    phone: '',
+    position_id: '1',
+    photo: '',
+}
 
-    // fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token') .then(function(response) { return response.json(); }) .then(function(data) { console.log(data); }) .catch(function(error) {})
+function SignUpForm () {
+    const [formFields, setFormFields] = useState(defaultFormFields)
+    const { name, email, phone, position_id, photo } = formFields
+
+    const [positions, setPositions] = useState([])
+    const [tokenData, setTokenData] = useState('')
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setFormFields({...formFields, [name]: value})
+    }
+
+    const handleFile = (event) => {
+        let file = event.target.files[0]
+        setFormFields({...formFields, photo: file})
+        console.log(photo)
+    }
+
     useEffect(() => {
+        axios.get('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+            .then(function (response) {
+                // handle success
+                setTokenData(response.data.token)
+
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
         axios.get('https://frontend-test-assignment-api.abz.agency/api/v1/positions')
             .then(function (response) {
                 // handle success
@@ -26,44 +53,28 @@ function SignUpForm(props) {
             })
             .then(function () {
                 // always executed
-
             });
     }, [])
 
-    function handle(e) {
-        const newData = {...data}
-        newData[e.target.id] = e.target.value
-        setData(newData)
-    }
-
-    function handleFile(e) {
-        let file = e.target.files[0]
-        setData({photo: file})
-    }
-
-    // function handlePosition(e) {
-    //     let id = e.target.value
-    //     setData({position_id: id})
-    // }
-
     const headers = {
         'Content-Type': 'application/json',
-        'token': "eyJpdiI6Ik9HM3gzb1ZkRStaZExSMTdaVTg3VWc9PSIsInZhbHVlIjoidkQ0WWJXQ0Y2eDBwQmp5QTFwY0NzY01PSDE2bTk4MHhlTUx2VnN1SXhUZDdkek5wYWU3T0pTdWFSaWNwa2V3bzlLY1diajV2Q2FQNkFERXNwMDhaWXc9PSIsIm1hYyI6IjQ0NGQ1Y2EzNDA4MTAwMjQ2MWFlODRlNjFjNzQ3MWRhNzkyYjQ0N2YxMzkxMThkNTMwODU5ZDBhYTNmMDg1YjgifQ=="
+        'token': tokenData
     }
 
-    function submit(e) {
-        e.preventDefault()
+    const handleSubmit = async (event) => {
+        event.preventDefault()
 
-        let file = data.photo
         let formdata = new FormData()
 
-        formdata.append('photo', file)
-        formdata.append('name', data.name)
-        formdata.append('email', data.email)
-        formdata.append('phone', data.phone)
-        formdata.append('position_id', "1")
+        formdata.append('photo', photo)
+        formdata.append('name', name)
+        formdata.append('email', email)
+        formdata.append('phone', phone)
+        formdata.append('position_id', position_id)
 
-        axios.post(url, formdata, {
+        axios.post('https://frontend-test-assignment-api.abz.agency/api/v1/users',
+            formdata,
+            {
             headers: headers
         })
             .then(res => {
@@ -77,29 +88,46 @@ function SignUpForm(props) {
 
     return (
         <div>
-            <form onSubmit={e => submit(e)}>
+            <form onSubmit={handleSubmit}>
                 <label>Name
-                    <input onChange={e => handle(e)} id='name' placeholder='Your name' type='text' />
+                    <input onChange={handleChange}
+                           name='name'
+                           value={name}
+                           placeholder='Your name'
+                           type='text' />
                 </label>
                 <label>Email
-                    <input onChange={e => handle(e)} id='email' placeholder='Email' type='email' />
+                    <input onChange={handleChange}
+                           name='email'
+                           value={email}
+                           placeholder='Email'
+                           type='email' />
                 </label>
                 <label>Phone
-                    <input onChange={e => handle(e)} id='phone' placeholder='Phone' type='phone' />
+                    <input onChange={handleChange}
+                           name='phone'
+                           value={phone}
+                           placeholder='Phone'
+                           type='phone' />
                 </label>
-                <select>
+                <select onChange={handleChange}
+                        name='position_id'
+                        value={position_id} >
                     {
                         positions.map((position) => {
                             return <option
                                 key={position.id}
-                                value={position.id}>
+                                value={position.id} >
                                     {position.name}
                             </option>
                         })
                     }
                 </select>
                 <label>Upload photo
-                    <input type='file' name='file' onChange={e => handleFile(e)}/>
+                    <input type='file'
+                           name='photo'
+                           onChange={handleFile}
+                           />
                 </label>
                 <button type='submit' value='Submit'>Submit</button>
             </form>
