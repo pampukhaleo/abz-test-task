@@ -10,15 +10,11 @@ function UsersList() {
     const [count, setCount] = useState(6)
 
     const handleClick = () => {
-        setCount((prevValue) => prevValue + 3)
-    }
-
-    const handleClear = () => {
-        setCount(6)
+        setCount((prevValue) => prevValue + 12)
     }
 
     useEffect(() => {
-        fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=27`)
+        fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?count=${count}`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -29,20 +25,18 @@ function UsersList() {
                     setIsLoaded(true);
                     setError(error);
                 })
-    }, [])
+    }, [count])
 
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
-        console.log(items)
         return (
             <div className='users-list'>
                 <div className='users-list-title'>Working with GET request</div>
                 <div className='users-items'>
                     {items
-                        .slice(0, count)
                         .map(item => (
                         <div className='user-item' key={item.id}>
                             <UserCard user={item}/>
@@ -51,8 +45,8 @@ function UsersList() {
                 </div>
                 <div style={{marginTop: "50px"}}>
                     {
-                        count == 27 ?
-                            <Button click={handleClear} text='Clear'/>
+                        count > items.length ?
+                            null
                             :
                             <Button click={handleClick} text='Show More'/>
                     }
