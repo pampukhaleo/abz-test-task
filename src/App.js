@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import Header from "./components/Header.component"
-import MainBlock from "./components/MainBlock.component"
-import UsersList from "./components/UsersList.component"
-import SignUpForm from "./components/SignUpForm.component"
+import Header from "./components/Header"
+import MainBlock from "./components/MainBlock"
+import UsersList from "./components/UsersList"
+import SignUpForm from "./components/SignUpForm"
 
 const App = () => {
   const [count, setCount] = useState(6)

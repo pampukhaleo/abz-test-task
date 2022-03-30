@@ -6,24 +6,24 @@
   font-weight: $regular;
 }
 
-@mixin large {
+@mixin large-lineheight {
   font-size: $large;
   line-height: $large-lineheight;
 }
 
-@mixin normal {
+@mixin normal-lineheight {
   font-size: $normal;
   line-height: $normal-lineheight;
 }
 
 @mixin text-heading {
   @include font-normal;
-  @include large;
+  @include large-lineheight;
 }
 
 @mixin text-paragraph {
   @include font-normal;
-  @include normal;
+  @include normal-lineheight;
 }
 
 @mixin flex($justify, $direction) {
