@@ -3,7 +3,6 @@ import React from 'react';
 import profileCover from '../images/photo-cover.svg'
 
 function UserCard({user}) {
-    console.log(user)
     return <div className='user-card'>
         <img src={user.photo ? user.photo : profileCover} alt="Profile-picture"/>
         <span style={{margin: "20px 0"}}>{user.name}</span>
