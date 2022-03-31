@@ -2,10 +2,25 @@
 
 .user-card {
   height: 100%;
+  cursor: default;
   @include flex(space-between, column);
   @include text-paragraph;
 
   img {
     border-radius: 50%;
+  }
+
+  .show-email {
+    position: relative;
+
+    .show-email-text {
+      position: absolute;
+      top: 10px;
+      left: -35px;
+      background: black;
+      color: $light-gray;
+      border-radius: 5px;
+      padding: 3px 7px;
+    }
   }
 }

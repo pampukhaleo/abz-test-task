@@ -2,8 +2,9 @@ import React, {useEffect, useState} from "react"
 import UserCard from "./UserCard"
 import Button from "./Button"
 import {getUsers} from "../api"
+import Preloader from "./Preloader";
 
-const UsersList = ({ count, onChange }) => {
+const UsersList = ({count, onChange}) => {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
@@ -27,24 +28,29 @@ const UsersList = ({ count, onChange }) => {
   if (error) {
     return <div>Error: {error.message}</div>
   } else if (!isLoaded) {
-    return <div>Loading...</div>
+    return (
+      <div className="users-list loaded">
+        <div className="users-list-title">Working with GET request</div>
+        <Preloader />
+      </div>
+    )
   } else {
     return (
-      <div className="users-list">
+      <div className={ isLoaded ? "users-list loaded" : "users-list" }>
         <div className="users-list-title">Working with GET request</div>
         <div className="users-items">
-          { items.length > 0
+          {items.length > 0
             ? items.map(item => (
               <div className="user-item" key={item.id}>
-                <UserCard user={item}/>
+                <UserCard user={item} />
               </div>
             ))
-            : null }
+            : null}
         </div>
         <div style={{marginTop: "50px"}}>
-          { count > items.length
-              ? null
-              : <Button click={handleClick} text="Show More"/> }
+          {count > items.length
+            ? null
+            : <Button click={handleClick} text="Show More" />}
         </div>
       </div>
     )

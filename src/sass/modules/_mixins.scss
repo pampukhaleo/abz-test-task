@@ -19,6 +19,7 @@
 @mixin text-heading {
   @include font-normal;
   @include large-lineheight;
+  cursor: default;
 }
 
 @mixin text-paragraph {

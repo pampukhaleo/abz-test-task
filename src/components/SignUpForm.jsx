@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios"
 import {getPositions, getToken} from "../api"
+import Button from "./Button";
 
 const defaultFormFields = {
   name: "",
@@ -8,6 +9,7 @@ const defaultFormFields = {
   phone: "",
   position_id: "1",
   photo: "",
+  fileName: ""
 }
 
 const SignUpForm = ({onSubmit}) => {
@@ -132,17 +134,26 @@ const SignUpForm = ({onSubmit}) => {
             )
           })}
         </div>
+
         <div className="form-control">
           <input onChange={handleFile}
                  className="inputfile"
                  type="file"
                  name="photo"
+                 id="file"
                  required
           />
-          <label>Upload</label>
+          <label htmlFor="file">Upload
+            { photo.name
+              ? <span>{photo.name}</span>
+              : <span>Upload your photo</span> }
+          </label>
+          <span className="file-message">Minimum size of photo 70x70px. The photo format must be jpeg/jpg type. The photo size must not be greater than 5 Mb.</span>
         </div>
 
-        <button type="submit" value="Submit">Submit</button>
+        <div className="form-btn">
+          <Button text={"Sign Up"} />
+        </div>
       </form>
     </div>
   )

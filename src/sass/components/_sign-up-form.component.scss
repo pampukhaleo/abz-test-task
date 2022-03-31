@@ -11,9 +11,11 @@
   form {
     width: 380px;
 
+    //@include flex(center, column);
+
     .form-control {
       position: relative;
-      margin: 20px 0 40px;
+      margin: 40px 0 40px;
 
       @include normal-lineheight;
 
@@ -33,14 +35,14 @@
         }
 
         &:focus ~ .form-label,
-        &:not(:placeholder-shown):not(:focus) ~ .form-label{
+        &:not(:placeholder-shown):not(:focus) ~ .form-label {
           top: -15px;
         }
 
         &:focus:invalid {
           border: 1px solid red;
 
-          &~ .form-message {
+          & ~ .form-message {
             display: block;
           }
         }
@@ -117,32 +119,65 @@
         transform: scale(1);
       }
     }
-  }
+    .inputfile {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      z-index: -1;
+      margin-top: 50px;
 
-  .inputfile {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-    & + label {
-      font-size: 1.25em;
-      font-weight: 700;
-      color: white;
-      background-color: black;
-      display: inline-block;
-      cursor: pointer;
+      & + label {
+        padding: 14px 15px;
+        border: 1px solid rgba(0, 0, 0, 0.87);
+        background: $light-gray;
+        box-sizing: border-box;
+        border-radius: 4px 0px 0px 4px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+        span {
+          position: absolute;
+          top: -1px;
+          left: 75px;
+          width: 304px;
+          height: 52px;
+          border: 1px solid #D0CFCF;
+          border-left: 0;
+          box-sizing: border-box;
+          border-radius: 4px;
+          z-index: -1;
+          padding-left: 25px;
+          @include flex(flex-start, row);
+        }
+      }
+
+      &:focus:invalid + label,
+      &:focus:invalid + label span {
+        border: 1px solid red;
+
+        & ~ .file-message {
+          display: block;
+          color: red;
+        }
+      }
     }
-    &:focus+label,
-    & + label:hover {
-      background-color: red;
+
+    .file-message {
+      width: 500px;
+      position: absolute;
+      bottom: -75px;
+      left: 23px;
+      display: none;
     }
-    &:focus + label {
-      outline: 1px dotted #000;
+
+    .form-btn {
+      margin: 50px 0;
+      text-align: center;
     }
   }
-
 }
 
 
