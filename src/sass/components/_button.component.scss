@@ -7,4 +7,13 @@
   border: none;
   border-radius: 80px;
   margin-left: 10px;
+
+  &:hover {
+    filter: brightness(105%);
+  }
+
+  &:disabled {
+    background: darkgray;
+    color: white;
+  }
 }

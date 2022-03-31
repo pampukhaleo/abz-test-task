@@ -26,11 +26,16 @@ const UsersList = ({count, onChange}) => {
   }, [count])
 
   if (error) {
-    return <div>Error: {error.message}</div>
+    return (
+      <div className="users-list loaded">
+        <div className="users-list-title">Server Error</div>
+        <Preloader />
+      </div>
+    )
   } else if (!isLoaded) {
     return (
       <div className="users-list loaded">
-        <div className="users-list-title">Working with GET request</div>
+        <div className="users-list-title">Loading</div>
         <Preloader />
       </div>
     )

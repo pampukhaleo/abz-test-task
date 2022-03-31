@@ -3,7 +3,6 @@ import Header from "./components/Header"
 import MainBlock from "./components/MainBlock"
 import UsersList from "./components/UsersList"
 import SignUpForm from "./components/SignUpForm"
-import Preloader from "./components/Preloader";
 
 const App = () => {
   const [count, setCount] = useState(6)

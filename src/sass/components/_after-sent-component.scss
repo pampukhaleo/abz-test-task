@@ -1,0 +1,11 @@
+@use '../modules' as *;
+
+.after-start {
+  margin-top: 50px;
+  @include flex(center, column);
+
+  .after-start-text {
+    margin-bottom: 50px;
+    @include large-lineheight;
+  }
+}
