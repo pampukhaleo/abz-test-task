@@ -8,8 +8,12 @@
   margin: 0 auto;
 
   @include flex(center, column);
-  @include for-desktop;
-  @include for-big-desktop;
+  @include for-desktop{
+    width: 1024px;
+  };
+  @include for-big-desktop {
+    width: 1170px;
+  };
 
   .main-block-title {
     @include text-heading;

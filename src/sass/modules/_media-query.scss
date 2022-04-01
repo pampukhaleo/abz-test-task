@@ -8,8 +8,8 @@
   @media (min-width: 900px) { @content; }
 }
 @mixin for-desktop {
-  @media (min-width: 1200px) { @content; width: 1024px; }
+  @media (min-width: 1024px) { @content; }
 }
 @mixin for-big-desktop {
-  @media (min-width: 2560px) { @content; width: 1170px; }
+  @media (min-width: 2560px) { @content; }
 }

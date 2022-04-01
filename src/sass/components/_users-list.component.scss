@@ -15,12 +15,16 @@
     margin-top: 50px;
     flex-wrap: wrap;
 
-    @include for-desktop;
-    @include for-big-desktop;
+    @include for-desktop {
+      width: 904px;
+    }
+
+    @include for-big-desktop {
+      width: 1170px;
+    };
     @include flex(space-between, row);
 
     .user-item {
-      width: 370px;
       height: 254px;
       text-align: center;
       background: #fff;
@@ -28,12 +32,15 @@
       border-radius: 10px;
       margin-top: 29px;
 
+      @include for-desktop {
+        width: 282px;
+      }
 
-
-
+      @include for-big-desktop {
+        width: 370px;
+      }
       &:nth-child(-n+3) {
         margin-top: 0;
-
       }
     }
   }

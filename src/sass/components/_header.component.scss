@@ -10,8 +10,14 @@
     margin: 0 auto;
     height: 100%;
 
-    @include for-desktop;
-    @include for-big-desktop;
+    @include for-desktop {
+      width: 1024px;
+      padding: 0 60px;
+    }
+    @include for-big-desktop {
+      width: 1170px;
+      padding: 0;
+    };
 
     .header-logo {
       margin-top: 5px;
