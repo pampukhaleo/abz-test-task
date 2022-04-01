@@ -9,10 +9,26 @@
 }
 
 .sign-up-form {
+  width: 100vw;
+  margin: 0 auto;
+
+  @include for-mobile {
+    width: auto;
+  }
+  @include for-tablet {
+    width: $largeWidth;
+  }
+  @include for-desktop {
+    width: $largeWidth;
+  }
+  @include for-big-desktop {
+    width: auto;
+  }
+
   .sign-up-form-title {
     width: 328px;
     text-align: center;
-    margin: 140px 0 50px;
+    margin: 140px auto 50px;
 
     @include text-heading;
     @include for-tablet {
@@ -161,6 +177,7 @@
           z-index: -1;
           padding-left: 25px;
           @include flex(flex-start, row);
+
           @include for-tablet {
             width: 306px;
           }

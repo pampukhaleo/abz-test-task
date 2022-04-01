@@ -1,15 +1,30 @@
 @use '../modules' as *;
 
 .users-list {
+  width: $largeWidth;
   opacity: 0;
-  transition: 3s ease-out;
-  @include flex(space-between, column);
+  margin: 0 auto;
+  @include flex(center, column);
+
+  @include for-mobile {
+    width: auto;
+  }
+  @include for-tablet {
+    width: $largeWidth;
+  }
+  @include for-desktop {
+    width: $largeWidth;
+  }
+  @include for-big-desktop {
+    width: auto;
+  }
 
   .users-list-title {
     @include text-heading;
     width: 328px;
     text-align: center;
-    margin-top: 140px;
+    margin: 140px auto 0;
+
     @include for-tablet {
       width: 100%;
     }
@@ -18,7 +33,6 @@
   .users-items {
     flex-wrap: wrap;
     margin-top: 50px;
-
     @include flex(center, column);
 
     @include for-tablet {
@@ -50,24 +64,23 @@
       }
       @include for-desktop {
         width: 282px;
-        margin-top: 29px;
+        margin-bottom: 29px;
       }
       @include for-big-desktop {
         width: 370px;
-      }
-
-      &:nth-child(-n+3) {
-        margin-top: 0;
-
-        @include for-tablet {
-          margin-top: 0;
-        }
       }
     }
   }
 
   .user-list-btn {
     margin-top: 30px;
+
+    @include for-tablet {
+      margin-top: 35px;
+    }
+    @include for-desktop {
+      margin-top: 21px;
+    }
   }
 }
 

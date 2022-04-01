@@ -6,10 +6,10 @@
   box-sizing: border-box;
   color: $black;
   margin: 0;
+  justify-self: center;
 }
 
 body {
-  //@include flex(center, row);
   //margin: 0;
   background: $light-gray;
   overflow-x: hidden;
