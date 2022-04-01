@@ -52,7 +52,7 @@ const UsersList = ({count, onChange}) => {
             ))
             : null}
         </div>
-        <div style={{marginTop: "50px"}}>
+        <div className="user-list-btn">
           {count > items.length
             ? null
             : <LargeButton click={handleClick} text="Show more" />}

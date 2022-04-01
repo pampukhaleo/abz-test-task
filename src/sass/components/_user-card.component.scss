@@ -9,11 +9,21 @@
   @include text-paragraph;
 
   span {
-    width: 370px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include for-tablet {
+      width: 304px;
+    }
+    @include for-desktop {
+      width: 242px;
+    }
+    @include for-big-desktop {
+      width: 330px;
+    }
   }
+
   img {
     border-radius: 50%;
   }

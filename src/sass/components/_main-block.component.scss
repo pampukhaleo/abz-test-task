@@ -8,8 +8,12 @@
   margin: 0 auto;
 
   @include flex(center, column);
+  @include for-tablet {
+    height: 500px;
+  }
   @include for-desktop{
     width: 1024px;
+    height: 650px;
   };
   @include for-big-desktop {
     width: 1170px;

@@ -15,12 +15,16 @@
     margin-top: 50px;
     flex-wrap: wrap;
 
+    @include for-tablet {
+      padding: 0 32px;
+    }
     @include for-desktop {
       width: 904px;
+      padding: 0;
     }
-
     @include for-big-desktop {
       width: 1170px;
+
     };
     @include flex(space-between, row);
 
@@ -30,19 +34,32 @@
       background: #fff;
       padding: 20px;
       border-radius: 10px;
-      margin-top: 29px;
 
+      @include for-tablet {
+        width: 344px;
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
       @include for-desktop {
         width: 282px;
+        margin-top: 29px;
       }
-
       @include for-big-desktop {
         width: 370px;
       }
+
       &:nth-child(-n+3) {
         margin-top: 0;
+
+        @include for-tablet {
+          margin-top: 0;
+        }
+
       }
     }
+  }
+  .user-list-btn {
+    margin-top: 34px;
   }
 }
 
