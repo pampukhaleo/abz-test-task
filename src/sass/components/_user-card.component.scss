@@ -3,9 +3,17 @@
 .user-card {
   height: 100%;
   cursor: default;
+
+
   @include flex(space-between, column);
   @include text-paragraph;
 
+  span {
+    width: 370px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   img {
     border-radius: 50%;
   }

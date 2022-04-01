@@ -3,7 +3,7 @@ import axios from "axios"
 import * as yup from 'yup';
 import {useForm} from "react-hook-form";
 import {getPositions, getToken} from "../api"
-import Button from "./Button";
+import {Button} from "./Button";
 import AfterSent from "./AfterSent";
 import {yupResolver} from "@hookform/resolvers/yup";
 
@@ -107,7 +107,7 @@ const SignUpForm = ({onSubmit}) => {
   }, [])
 
   const userFormSubmit = async (data) => {
-    const { name, email, phone, position_id } = data
+    const {name, email, phone, position_id} = data
     const photo = data.photo[0]
 
     let formdata = new FormData()
@@ -148,7 +148,7 @@ const SignUpForm = ({onSubmit}) => {
     <div className="sign-up-form">
       {isSent
         ? <AfterSent/>
-        : <div>
+        : <div className="sign-up-form-container">
           <div className="sign-up-form-title">Working with POST request</div>
           <form onSubmit={handleSubmit(userFormSubmit)} className="form-info">
             <div className="form-control">
@@ -171,7 +171,7 @@ const SignUpForm = ({onSubmit}) => {
                   }
                 })}
               />
-              <label className="form-label">Name</label>
+              <label className="form-label">Your name</label>
               {/*<span id="idweneed" className="form-message">Username should contain 2-60 characters</span>*/}
               {errors?.name && <span className="form-message">{errors?.name?.message || "Error"}</span>}
             </div>
@@ -256,14 +256,13 @@ const SignUpForm = ({onSubmit}) => {
               <label htmlFor="file" className={errors.photo ? `red-border` : " "}>Upload
                 {!watch("photo") || watch("photo").length === 0
                   ? <span className={errors.photo ? `red-border` : " "}>Upload your photo</span>
-                  : <span>{watch("photo")[0].name}</span> }
+                  : <span>{watch("photo")[0].name}</span>}
               </label>
               {<span className="file-message">{errors?.photo?.message}</span>}
-
             </div>
 
             <div className="form-btn">
-              <Button valid={!isValid} text={"Sign Up"}/>
+              <Button valid={!isValid} text={"Sign up"}/>
             </div>
           </form>
         </div>}

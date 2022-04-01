@@ -4,10 +4,12 @@
 * {
   @include font-normal;
   box-sizing: border-box;
+  color: $black;
+  margin: 0;
 }
 
 body {
   @include flex(center, row);
   margin: 0;
-  background: $light-gray;
+  background: $light-gray
 }

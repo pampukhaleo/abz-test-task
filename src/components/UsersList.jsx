@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import UserCard from "./UserCard"
-import Button from "./Button"
+import { LargeButton } from "./Button"
 import {getUsers} from "../api"
 import Preloader from "./Preloader";
 
@@ -55,7 +55,7 @@ const UsersList = ({count, onChange}) => {
         <div style={{marginTop: "50px"}}>
           {count > items.length
             ? null
-            : <Button click={handleClick} text="Show More" />}
+            : <LargeButton click={handleClick} text="Show more" />}
         </div>
       </div>
     )

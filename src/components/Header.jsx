@@ -1,16 +1,16 @@
 import React from "react"
 import logo from "../images/Logo.svg"
-import Button from "./Button"
+import { Button } from "./Button"
 
 const Header = () => (
   <div className="header">
-    <div className="container">
-      <div className="logo">
+    <div className="header-container">
+      <div className="header-logo">
         <img src={logo} alt="Logo"/>
       </div>
-      <div className="navigation">
+      <div className="header-navigation">
         <Button text="Users"/>
-        <Button text="Sign Up"/>
+        <Button text="Sign up"/>
       </div>
     </div>
   </div>

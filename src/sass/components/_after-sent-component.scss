@@ -1,7 +1,7 @@
 @use '../modules' as *;
 
 .after-start {
-  margin-top: 50px;
+  margin: 50px 0px;
   @include flex(center, column);
 
   .after-start-text {

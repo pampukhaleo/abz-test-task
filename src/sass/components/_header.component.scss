@@ -5,12 +5,21 @@
   width: 100vw;
   background: white;
 
-  .container {
+  .header-container {
     @include flex(space-between, row);
     margin: 0 auto;
     height: 100%;
 
     @include for-desktop;
     @include for-big-desktop;
+
+    .header-logo {
+      margin-top: 5px;
+    }
+  }
+
+  .header-navigation {
+    width: 210px;
+    @include flex(space-between, center)
   }
 }

@@ -3,6 +3,9 @@
 .red-border {
   border: 1px solid red !important;
 }
+.sign-up-form-container {
+  @include flex(center, column)
+}
 
 .sign-up-form {
   @include flex(center, column);
@@ -15,13 +18,15 @@
   form {
     width: 380px;
 
-    //@include flex(center, column);
-
     .form-control {
       position: relative;
-      margin: 40px 0 40px;
+      margin-bottom: 50px;
 
       @include normal-lineheight;
+
+      &:nth-child(3) {
+        margin-bottom: 45px;
+      }
 
       .form-input {
         height: 54px;
@@ -35,25 +40,19 @@
         position: relative;
         outline: none;
 
-        &:focus {
-          background: $light-gray;
-        }
-
         &:focus ~ .form-label,
         &:not(:placeholder-shown):not(:focus) ~ .form-label {
           top: -15px;
         }
-
-
       }
 
       .form-label {
         position: absolute;
         top: 14px;
-        left: 16px;
-        width: 55px;
+        left: 15px;
+        width: 76px;
+        color: $gray;
         background: $light-gray;
-        text-align: center;
         height: 26px;
         transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         cursor: text;
@@ -87,7 +86,7 @@
     }
 
     .positions-control {
-      margin-top: 7px;
+      margin-top: 5.5px;
       display: grid;
       grid-template-columns: 1em auto;
       gap: 0.5em;
@@ -99,33 +98,38 @@
       margin: 0;
       width: 20px;
       height: 20px;
-      border: 0.15em solid #00BDD3;
+      border: 0.13em solid rgba(208, 207, 207, 1);
       border-radius: 50%;
       display: grid;
       place-content: center;
 
+      &:checked {
+        border: 0.13em solid #00BDD3;
+      }
+
       &:before {
         content: "";
-        width: 5px;
-        height: 5px;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
         transform: scale(0);
         transition: 120ms transform ease-in-out;
-        box-shadow: inset 1em 1em #00BDD3;
+        box-shadow: inset 0.8em 0.8em #00BDD3;
       }
 
       &:checked:before {
-        transform: scale(1);
+        transform: scale(1.6);
+
       }
     }
+
     .input-file {
       width: 0.1px;
       height: 0.1px;
       opacity: 0;
       overflow: hidden;
-      position: absolute;
       z-index: -1;
-      margin-top: 50px;
+      margin-top: 61px;
 
       & + label {
         padding: 14px 15px;
@@ -140,9 +144,10 @@
         span {
           position: absolute;
           top: -1px;
-          left: 75px;
+          left: 74px;
           width: 304px;
           height: 51.5px;
+          color: #7E7E7E;
           border: 1px solid #D0CFCF;
           border-left: 0;
           box-sizing: border-box;
@@ -163,7 +168,7 @@
     }
 
     .form-btn {
-      margin: 50px 0;
+      margin: 63px 0 100px;
       text-align: center;
     }
   }

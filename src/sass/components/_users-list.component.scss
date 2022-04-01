@@ -12,8 +12,9 @@
   }
 
   .users-items {
-    margin: 11px auto 0;
+    margin-top: 50px;
     flex-wrap: wrap;
+
     @include for-desktop;
     @include for-big-desktop;
     @include flex(space-between, row);
@@ -23,9 +24,17 @@
       height: 254px;
       text-align: center;
       background: #fff;
-      margin-top: 29px;
       padding: 20px;
       border-radius: 10px;
+      margin-top: 29px;
+
+
+
+
+      &:nth-child(-n+3) {
+        margin-top: 0;
+
+      }
     }
   }
 }
