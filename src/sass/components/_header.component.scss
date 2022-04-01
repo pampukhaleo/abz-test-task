@@ -1,16 +1,19 @@
 @use '../modules' as *;
 
 .header {
-  height: 60px;
   width: 100vw;
+  height: 60px;
   background: white;
 
   .header-container {
     @include flex(space-between, row);
-    margin: 0 auto;
+    width: 360px;
     height: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
 
     @include for-tablet {
+      width: 768px;
       padding: 0 32px;
     }
     @include for-desktop {

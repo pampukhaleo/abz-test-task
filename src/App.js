@@ -12,7 +12,6 @@ const App = () => {
     <div>
       <Header/>
       <MainBlock/>
-
       <UsersList
         count={count}
         onChange={setCount}

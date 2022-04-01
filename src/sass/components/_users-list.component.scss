@@ -7,16 +7,23 @@
 
   .users-list-title {
     @include text-heading;
-    margin-top: 140px;
+    width: 328px;
     text-align: center;
+    margin-top: 140px;
+    @include for-tablet {
+      width: 100%;
+    }
   }
 
   .users-items {
-    margin-top: 50px;
     flex-wrap: wrap;
+    margin-top: 50px;
+
+    @include flex(center, column);
 
     @include for-tablet {
       padding: 0 32px;
+      @include flex(space-between, row);
     }
     @include for-desktop {
       width: 904px;
@@ -24,16 +31,17 @@
     }
     @include for-big-desktop {
       width: 1170px;
-
     };
-    @include flex(space-between, row);
 
     .user-item {
+      width: 328px;
       height: 254px;
       text-align: center;
       background: #fff;
-      padding: 20px;
       border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+
 
       @include for-tablet {
         width: 344px;
@@ -54,12 +62,12 @@
         @include for-tablet {
           margin-top: 0;
         }
-
       }
     }
   }
+
   .user-list-btn {
-    margin-top: 34px;
+    margin-top: 30px;
   }
 }
 

@@ -9,7 +9,8 @@
 }
 
 body {
-  @include flex(center, row);
-  margin: 0;
-  background: $light-gray
+  //@include flex(center, row);
+  //margin: 0;
+  background: $light-gray;
+  overflow-x: hidden;
 }
