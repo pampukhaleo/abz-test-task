@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/pampukhaleo/abz-test-task/static/css/main.0a4c12f8.css",
-    "main.js": "/pampukhaleo/abz-test-task/static/js/main.c1ccb2a4.js",
-    "static/js/787.f5104f72.chunk.js": "/pampukhaleo/abz-test-task/static/js/787.f5104f72.chunk.js",
-    "static/media/pexels-alexandr-podvalny-1227513.jpeg": "/pampukhaleo/abz-test-task/static/media/pexels-alexandr-podvalny-1227513.be7665f876bbd9138501.jpeg",
-    "static/media/success-image.svg": "/pampukhaleo/abz-test-task/static/media/success-image.0d3202ba11b04fa7364b0f83ce42aea5.svg",
-    "static/media/Logo.svg": "/pampukhaleo/abz-test-task/static/media/Logo.8bb55362d01d55393ccc5476d96f0c14.svg",
-    "static/media/photo-cover.svg": "/pampukhaleo/abz-test-task/static/media/photo-cover.fb98cf13a87225efe558669bdc541ac7.svg",
-    "index.html": "/pampukhaleo/abz-test-task/index.html",
-    "main.0a4c12f8.css.map": "/pampukhaleo/abz-test-task/static/css/main.0a4c12f8.css.map",
-    "main.c1ccb2a4.js.map": "/pampukhaleo/abz-test-task/static/js/main.c1ccb2a4.js.map",
-    "787.f5104f72.chunk.js.map": "/pampukhaleo/abz-test-task/static/js/787.f5104f72.chunk.js.map"
+    "main.css": "/pampukhaleo/abz-test-task/index.html/static/css/main.930678d2.css",
+    "main.js": "/pampukhaleo/abz-test-task/index.html/static/js/main.fc13f725.js",
+    "static/js/787.f5104f72.chunk.js": "/pampukhaleo/abz-test-task/index.html/static/js/787.f5104f72.chunk.js",
+    "static/media/pexels-alexandr-podvalny-1227513.jpeg": "/pampukhaleo/abz-test-task/index.html/static/media/pexels-alexandr-podvalny-1227513.be7665f876bbd9138501.jpeg",
+    "static/media/success-image.svg": "/pampukhaleo/abz-test-task/index.html/static/media/success-image.0d3202ba11b04fa7364b0f83ce42aea5.svg",
+    "static/media/Logo.svg": "/pampukhaleo/abz-test-task/index.html/static/media/Logo.8bb55362d01d55393ccc5476d96f0c14.svg",
+    "static/media/photo-cover.svg": "/pampukhaleo/abz-test-task/index.html/static/media/photo-cover.fb98cf13a87225efe558669bdc541ac7.svg",
+    "index.html": "/pampukhaleo/abz-test-task/index.html/index.html",
+    "main.930678d2.css.map": "/pampukhaleo/abz-test-task/index.html/static/css/main.930678d2.css.map",
+    "main.fc13f725.js.map": "/pampukhaleo/abz-test-task/index.html/static/js/main.fc13f725.js.map",
+    "787.f5104f72.chunk.js.map": "/pampukhaleo/abz-test-task/index.html/static/js/787.f5104f72.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a4c12f8.css",
-    "static/js/main.c1ccb2a4.js"
+    "static/css/main.930678d2.css",
+    "static/js/main.fc13f725.js"
   ]
 }
