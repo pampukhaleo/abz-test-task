@@ -1,20 +1,22 @@
-import React, {useEffect, useState} from "react"
-import UserCard from "./UserCard"
+import React, { useEffect, useState } from "react"
+import { getUsers } from "../api"
 import { LargeButton } from "./Button"
-import {getUsers} from "../api"
-import Preloader from "./Preloader";
+import UserCard from "./UserCard"
+import Preloader from "./Preloader"
 
-const UsersList = ({count, onChange}) => {
+//Users list component
+const UsersList = ({ count, isUpdate, onChange }) => {
   const [error, setError] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [items, setItems] = useState([])
 
+  // Show 12 more Users on Show more button click
   const handleClick = () => {
     onChange((prevValue) => prevValue + 12)
   }
 
   useEffect(() => {
-    getUsers(count)
+    getUsers(count) // Fetching users data
       .then(res => {
         setIsLoaded(true)
         setItems(res)
@@ -23,16 +25,16 @@ const UsersList = ({count, onChange}) => {
         setIsLoaded(true)
         setError(error)
       })
-  }, [count])
+  }, [count, isUpdate])
 
-  if (error) {
+  if (error) { // Show Preloader component with message on error state
     return (
       <div className="users-list loaded">
         <div className="users-list-title">Server Error</div>
         <Preloader />
       </div>
     )
-  } else if (!isLoaded) {
+  } else if (!isLoaded) { // Show Preloader component with message on isLoaded state
     return (
       <div className="users-list loaded">
         <div className="users-list-title">Loading</div>
@@ -43,6 +45,7 @@ const UsersList = ({count, onChange}) => {
     return (
       <div className={ isLoaded ? "users-list loaded" : "users-list" }>
         <div className="users-list-title">Working with GET request</div>
+        {/* Show loaded Users */}
         <div className="users-items">
           {items.length > 0
             ? items.map(item => (
@@ -55,7 +58,7 @@ const UsersList = ({count, onChange}) => {
         <div className="user-list-btn">
           {count > items.length
             ? null
-            : <LargeButton click={handleClick} text="Show more" />}
+            : <LargeButton click={handleClick} text="Show more" /> }
         </div>
       </div>
     )

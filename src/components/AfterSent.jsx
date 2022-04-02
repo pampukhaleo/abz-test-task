@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react"
 import successImg from "../images/success-image.svg"
 
+// Successfully registered component
 const AfterSent = () => (
-  <div className="after-start">
-    <div className="after-start-text">User successfully registered</div>
-    <div className="after-start-image">
-      <img src={successImg} alt="User successfully registered"/>
+  <div className="after-sent">
+    <div className="after-sent-text">User successfully registered</div>
+    <div>
+      <img src={successImg} alt="User successfully registered" />
     </div>
   </div>
 )

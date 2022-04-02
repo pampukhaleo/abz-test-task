@@ -1,6 +1,7 @@
 import React from "react"
 import {Button} from "./Button"
 
+//Main content component
 const MainBlock = () => (
   <div className="main-block-container">
     <div className="main-block">
@@ -9,7 +10,7 @@ const MainBlock = () => (
         CSS, JS with a vast
         understanding of User design thinking as they'll be building web interfaces with accessibility in mind. They
         should also be excited to learn, as the world of Front-End Development keeps evolving.</p>
-      <Button text="Sign up"/>
+      <Button text="Sign up" />
     </div>
   </div>
 )

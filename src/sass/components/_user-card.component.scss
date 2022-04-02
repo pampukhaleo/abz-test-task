@@ -1,19 +1,25 @@
 @use '../modules' as *;
 
+//User card component
 .user-card {
   height: 100%;
   cursor: default;
-
-
   @include flex(space-between, column);
   @include text-paragraph;
 
+  //User name margin
+  .user-card-name {
+    margin: 20px 0;
+  }
+
+  //User data sliced information
   span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 288px;
 
+    //Responsive parameters
     @include for-tablet {
       width: 304px;
     }
@@ -25,10 +31,12 @@
     }
   }
 
+  //User Avatar
   img {
     border-radius: 50%;
   }
 
+  //Email tooltip styles
   .show-email {
     position: relative;
 

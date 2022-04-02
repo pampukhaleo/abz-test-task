@@ -1,15 +1,16 @@
-import React, {useState} from "react"
-
+import React, { useState } from "react"
 import profileCover from "../images/photo-cover.svg"
 
+//User data component
 const UserCard = ({user}) => {
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(false)
 
   return (
     <div className="user-card">
       <img src={user.photo ? user.photo : profileCover} alt="Profile-picture"/>
-      <span style={{margin: "20px 0"}}>{user.name}</span>
+      <span className="user-card-name">{user.name}</span>
       <span>{user.position}</span>
+      {/* Email tooltip component appears on User email hover*/}
       <span onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}>
         {user.email}

@@ -1,10 +1,11 @@
 @use '../modules' as *;
 
-.after-start {
+//Successfully registered component
+.after-sent {
   margin: 50px 0px;
   @include flex(center, column);
 
-  .after-start-text {
+  .after-sent-text {
     margin-bottom: 50px;
     @include large-lineheight;
   }

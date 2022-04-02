@@ -1,5 +1,6 @@
 @use '../modules' as *;
 
+//Header component
 .header {
   height: 60px;
   background: white;
@@ -11,6 +12,7 @@
     padding: 0 16px;
     margin: 0 auto;
 
+    //Responsive parameters
     @include for-tablet {
       width: 768px;
       padding: 0 32px;
@@ -24,11 +26,13 @@
       padding: 0;
     }
 
+    //Header logo
     .header-logo {
       margin-top: 5px;
     }
   }
 
+  //Header Links
   .header-navigation {
     width: 210px;
     @include flex(space-between, center)

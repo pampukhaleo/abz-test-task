@@ -1,49 +1,59 @@
 @use '../modules' as *;
-.main-block-container{
-max-width: 1170px;
-  margin: 0 auto;
-}
-.main-block {
-  @include flex(center, column);
-  height: 500px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/pexels-alexandr-podvalny-1227513.jpeg') bottom;
-  background-size: cover;
-  text-align: center;
+
+//Main content component
+.main-block-container {
+  max-width: 1170px;
   margin: 0 auto;
 
-  @include for-tablet {
-    width: 100vw;
-  }
-  @include for-desktop{
-    height: 650px;
-    max-width: 1024px;
-  };
-  @include for-big-desktop {
-    max-width: 100%;
-  };
+  .main-block {
+    @include flex(center, column);
+    height: 500px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../images/pexels-alexandr-podvalny-1227513.jpeg') bottom;
+    background-size: cover;
+    text-align: center;
+    margin: 0 auto;
 
-  .main-block-title {
-    width: 328px;
-    color: white;
-    margin-bottom: 21px;
-    margin-top: -31px;
-    @include text-heading;
-
+    //Responsive parameters
     @include for-tablet {
-      width: 380px;
+      width: $largeWidth;
+    }
+    @include for-desktop {
+      height: 650px;
+      max-width: 1024px;
+    }
+    @include for-big-desktop {
+      max-width: 100%;
+    }
+
+    //Content title
+    .main-block-title {
+      width: 328px;
       color: white;
       margin-bottom: 21px;
-      margin-top: 0;
-    }
-  }
+      margin-top: -31px;
+      @include text-heading;
 
-  .main-block-text {
-    width: 328px;
-    margin-bottom: 32px;
-    color: white;
-    @include text-paragraph;
-    @include for-tablet {
-      width: 380px;
+      //Responsive parameters
+      @include for-tablet {
+        width: 380px;
+        color: white;
+        margin-bottom: 21px;
+        margin-top: 0;
+      }
+    }
+
+    //Content text
+    .main-block-text {
+      width: 328px;
+      margin-bottom: 32px;
+      color: white;
+      @include text-paragraph;
+
+      //Responsive parameters
+      @include for-tablet {
+        width: 380px;
+      }
     }
   }
 }
+

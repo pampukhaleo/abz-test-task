@@ -6,11 +6,11 @@ const Header = () => (
   <div className="header">
     <div className="header-container">
       <div className="header-logo">
-        <img src={logo} alt="Logo"/>
+        <img src={logo} alt="Logo" />
       </div>
       <div className="header-navigation">
-        <Button text="Users"/>
-        <Button text="Sign up"/>
+        <Button text="Users" />
+        <Button text="Sign up" />
       </div>
     </div>
   </div>

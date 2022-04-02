@@ -1,16 +1,16 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios"
-import * as yup from 'yup';
-import {useForm} from "react-hook-form";
-import {getPositions, getToken} from "../api"
-import {Button} from "./Button";
-import AfterSent from "./AfterSent";
-import {yupResolver} from "@hookform/resolvers/yup";
+import * as yup from 'yup'
+import { useForm } from "react-hook-form"
+import { getPositions , getToken } from "../api"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { Button } from "./Button"
+import AfterSent from "./AfterSent"
 
 const emailPatern = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/
-
 const phonePatern = /^[\+]{0,1}380([0-9]{9})$/
 
+//Yup schema for validation
 const schema = yup.object().shape({
   name: yup.string().min(2).max(60).required("Name is required"),
   email: yup.string().min(2).max(100).required("Email is required")
@@ -30,14 +30,16 @@ const schema = yup.object().shape({
     })
 })
 
-const SignUpForm = ({onSubmit}) => {
+//Registration form
+const SignUpForm = ({ onSubmit }) => {
   const [positions, setPositions] = useState([])
   const [tokenData, setTokenData] = useState("")
   const [isSent, setIsSent] = useState(false)
 
+  //Using React Hook Form library to register inputs and send data to server
   const {register, handleSubmit, watch, formState: {errors, isValid}, reset} = useForm({
     mode: "all",
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema) //yup schema connected
   })
 
   const headers = {
@@ -46,15 +48,16 @@ const SignUpForm = ({onSubmit}) => {
   }
 
   useEffect(() => {
-    getToken()
+    getToken() // Fetching authorisation token from server
       .then((response) => setTokenData(response))
       .catch((error) => console.log(error))
 
-    getPositions()
+    getPositions() // Fetching radio input data
       .then((response) => setPositions(response))
       .catch((error) => console.log(error))
   }, [])
 
+  // Saving form data for submit
   const userFormSubmit = async (data) => {
     const {name, email, phone, position_id} = data
     const photo = data.photo[0]
@@ -67,15 +70,16 @@ const SignUpForm = ({onSubmit}) => {
     formdata.append("phone", phone)
     formdata.append("position_id", position_id)
 
+    // Sending form data to server
     axios.post("https://frontend-test-assignment-api.abz.agency/api/v1/users",
       formdata,
       {
         headers: headers
       })
       .then(res => {
-        reset()
-        onSubmit()
-        setIsSent(true)
+        reset() // Resetting form inputs
+        onSubmit() // Resetting UserList component count to see last registered User
+        setIsSent(true) // Changing state for Successfully registered component to appear
       })
       .catch((error) => console.log(error))
   }
@@ -83,16 +87,16 @@ const SignUpForm = ({onSubmit}) => {
   return (
     <div className="sign-up-form">
       {isSent
-        ? <AfterSent/>
+        ? <AfterSent /> // Successfully registered component
         : <div className="sign-up-form-container">
           <div className="sign-up-form-title">Working with POST request</div>
+          {/* Submit Form */}
           <form onSubmit={handleSubmit(userFormSubmit)} className="form-info">
             <div className="form-control">
               <input
                 className={errors.name ? `red-border form-input` : "form-input"}
                 placeholder=" "
                 type="text"
-
                 {...register("name")}
               />
               <label className="form-label">Your name</label>
@@ -154,7 +158,7 @@ const SignUpForm = ({onSubmit}) => {
             </div>
 
             <div className="form-btn">
-              <Button valid={!isValid} text={"Sign up"}/>
+              <Button valid={!isValid} text={"Sign up"} />
             </div>
           </form>
         </div>}
