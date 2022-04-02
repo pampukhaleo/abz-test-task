@@ -23,7 +23,7 @@ const schema = yup.object().shape({
       return value && value.length
     })
     .test("fileSize", "The file is too large", (value) => {
-      return value && value[0] && value[0].size <= 5000
+      return value && value[0] && value[0].size <= 5000000
     })
     .test("type", "We only support jpeg", function (value) {
       return value && value[0] && value[0].type === "image/jpeg"
@@ -95,33 +95,36 @@ const SignUpForm = ({ onSubmit }) => {
             <div className="form-control">
               <input
                 className={errors.name ? `red-border form-input` : "form-input"}
+                id="name"
                 placeholder=" "
                 type="text"
                 {...register("name")}
               />
-              <label className="form-label">Your name</label>
+              <label for="name" className="form-label">Your name</label>
               {errors?.name && <span className="form-message">{errors?.name?.message || "Error"}</span>}
             </div>
 
             <div className="form-control">
               <input
                 className={errors.email ? `red-border form-input` : "form-input"}
+                id="email"
                 placeholder=" "
                 type="email"
                 {...register("email")}
               />
-              <label className="form-label">Email</label>
+              <label for="email" className="form-label">Email</label>
               {errors?.email && <span className="form-message">{errors?.email?.message || "Error"}</span>}
             </div>
 
             <div className="form-control">
               <input
                 className={errors.phone ? `red-border form-input` : "form-input"}
+                id="phone"
                 placeholder=" "
                 type="phone"
                 {...register("phone")}
               />
-              <label className="form-label">Phone</label>
+              <label for="phone" className="form-label">Phone</label>
               {errors?.phone && <span className="form-message">{errors?.phone?.message || "Error"}</span>}
             </div>
 
@@ -131,12 +134,13 @@ const SignUpForm = ({ onSubmit }) => {
                 return (
                   <div key={position.id} className="positions-control">
                     <input className="positions-item"
+                           id={position.id}
                            type="radio"
                            value={position.id}
                            required
                            {...register("position_id")}
                     />
-                    <label className="position-label">{position.name}</label>
+                    <label for={position.id} className="position-label">{position.name}</label>
                   </div>
                 )
               })}
@@ -144,12 +148,13 @@ const SignUpForm = ({ onSubmit }) => {
 
             <div className="form-control">
               <input className="input-file"
+                     id="photo"
                      type="file"
                      name="photo"
                      id="file"
                      {...register("photo")}
               />
-              <label htmlFor="file" className={errors.photo ? `red-border` : " "}>Upload
+              <label for="photo" htmlFor="file" className={errors.photo ? `red-border` : " "}>Upload
                 {!watch("photo") || watch("photo").length === 0
                   ? <span className={errors.photo ? `red-border` : " "}>Upload your photo</span>
                   : <span>{watch("photo")[0].name}</span>}
