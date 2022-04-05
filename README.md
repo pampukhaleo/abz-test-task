@@ -1,4 +1,4 @@
-#ABZ test task for Front-end developer position
+ABZ.agency test task for Front-end developer position
 
 Start App - npm start
 
